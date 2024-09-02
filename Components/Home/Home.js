@@ -4,16 +4,19 @@ import { View, Text, StyleSheet } from 'react-native';
 import { useState } from 'react';
 import axios from 'axios';
 import { FlatList } from 'react-native-gesture-handler';
+import { ActivityIndicator } from 'react-native-web';
 
 export default function HomeScreen() {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     React.useEffect(() => {
         axios("https://backendrryl.onrender.com/tienda/articulo")
             .then(({ data }) => {
                 setData(data.items);
             })
-            .catch(error => console.error(error));
+            .catch(error => console.error(error))
+            .finally(() => setLoading(false));
     }, []);
 
     const Item = ({ name }) => (
@@ -24,6 +27,9 @@ export default function HomeScreen() {
 
     return (
         <View style={styles.container}>
+
+                {loading && <ActivityIndicator size="large" color="#0000ff" />}
+
             <FlatList
                 data={data}
                 renderItem={({ item }) => <Item name={item.name} />}

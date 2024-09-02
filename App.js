@@ -5,6 +5,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { View, Text } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import HomeScreen from './Components/Home/Home';
+import FormProduct from './Components/Form/FormProduct';
 
 // Pantallas para el Drawer Navigator
 
@@ -26,7 +27,7 @@ export default function App() {
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Home">
           <Drawer.Screen name="Home" component={HomeScreen} />
-          <Drawer.Screen name="Settings" component={SettingsScreen} />
+          <Drawer.Screen name="Form" component={FormProduct} />
         </Drawer.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>

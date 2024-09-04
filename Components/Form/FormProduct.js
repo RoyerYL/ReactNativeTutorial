@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, ScrollView, StyleSheet, Text } from 'react-native';
+import { View, TextInput, Button, ScrollView, StyleSheet, Text, Pressable } from 'react-native';
 import axios from 'axios';
 
 const FormProduct = () => {
@@ -123,7 +123,7 @@ const FormProduct = () => {
           <TextInput
             style={styles.input}
             placeholder="Stock"
-            keyboardType="numeric"
+            inputMode="decimal"
             value={form.stock}
             onChangeText={value => handleInputChange('stock', value)}
           />
@@ -131,7 +131,7 @@ const FormProduct = () => {
           <TextInput
             style={styles.input}
             placeholder="Stock Mínimo"
-            keyboardType="numeric"
+           inputMode="decimal"
             value={form.stockMin}
             onChangeText={value => handleInputChange('stockMin', value)}
           />
@@ -143,14 +143,14 @@ const FormProduct = () => {
               <TextInput
                 style={styles.input}
                 placeholder="Costo en Pesos"
-                keyboardType="numeric"
+                inputMode="decimal"
                 value={form.costoPeso}
                 onChangeText={value => handleInputChange('costoPeso', value)}
               />
               <TextInput
                 style={styles.input}
                 placeholder="Costo en Dólares"
-                keyboardType="numeric"
+                inputMode="decimal"
                 value={form.costoDolar}
                 onChangeText={value => handleInputChange('costoDolar', value)}
               />
@@ -160,14 +160,14 @@ const FormProduct = () => {
               <TextInput
                 style={styles.input}
                 placeholder="IVA"
-                keyboardType="numeric"
+                inputMode="decimal"
                 value={form.iva}
                 onChangeText={value => handleInputChange('iva', value)}
               />
               <TextInput
                 style={styles.input}
                 placeholder="Ganancia"
-                keyboardType="numeric"
+               inputMode="decimal"
                 value={form.ganancia}
                 onChangeText={value => handleInputChange('ganancia', value)}
               />
@@ -176,7 +176,7 @@ const FormProduct = () => {
           <TextInput
             style={styles.input}
             placeholder="Precio de Venta"
-            keyboardType="numeric"
+            inputMode="decimal"
             value={form.precioVenta}
             onChangeText={value => handleInputChange('precioVenta', value)}
           />
@@ -208,8 +208,9 @@ const FormProduct = () => {
           value={form.ProvedorId}
           onChangeText={value => handleInputChange('ProvedorId', value)}
         /> */}
-
-        <Button title="Crear Artículo" onPress={handleSubmit} />
+        <Pressable style={styles.button} onPress={handleSubmit}>
+          <Text style={styles.buttonText}>Crear Artículo</Text>
+        </Pressable>
 
       </View>
     </ScrollView>

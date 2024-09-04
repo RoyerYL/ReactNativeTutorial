@@ -1,19 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Button } from 'react-native-web';
+import { View, Text, StyleSheet, Button, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 export default function DetailScreen({ route }) {
   const { item } = route.params;
   const navigation = useNavigation();
+  console.log(item);
+  
   return (
     <View style={styles.container}>
-     <Button
-        onPress={() => navigation.goBack()}  // Acción personalizada para el botón de volver
-        title="Atrás"
-        color="#000"
-      />
+      <Pressable onPress={() => navigation.goBack()}>
+        <Text>Volver</Text> 
+      </Pressable>
+     
       <Text style={styles.title}>{item.id}</Text>
       <Text style={styles.title}>{item.name}</Text>
+      <Text style={styles.title}>{item.stock}</Text>
 
     </View>
   );

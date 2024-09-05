@@ -24,7 +24,7 @@ export default function HomeScreen() {
   );
   const fetchArticulos = async (filter) => {
     try {
-      const response = await axios.get(`https://backendrryl.onrender.com/tienda/articulo` + buildQueryParams(filter));
+      const response = await axios.get(`tienda/articulo` + buildQueryParams(filter));
       console.log(response.data);
 
       setData(response.data.items);
